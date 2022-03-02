@@ -13,6 +13,15 @@ namespace Conexao
 
             conexao.Open(); //Abrindo a Conexão
 
+
+
+            string strQueryUpdate = "UPDATE usuarios SET nome = 'Fabio' WHERE usuarioId = 1";
+            SqlCommand cmdComandoUpdate = new SqlCommand(strQueryUpdate, conexao);
+            cmdComandoUpdate.ExecuteNonQuery();
+            ////Incluindo variaveis e dados para fazer update
+
+
+
             string strQuerySelect = "Select * From usuarios";
             //Essa Estring executa a Query do sql
 
@@ -22,9 +31,15 @@ namespace Conexao
             SqlDataReader dados = cmdComandoSelect.ExecuteReader();
             //Carrega a execução do comando /Executa
 
+
+            
+
+
             while (dados.Read()) //Enquanto Existe dados
             {
                 Console.WriteLine("Id:{0}, Nome:{1}, Cargo:{2}, Data:{3}" , dados["usuarioId"], dados["nome"], dados["cargo"], dados["date"]);
+
+
 
             }
             
